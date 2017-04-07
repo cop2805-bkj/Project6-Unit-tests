@@ -1,10 +1,9 @@
 package com.bkj.banking;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by bclaus on 4/6/17.
@@ -21,22 +20,32 @@ public class CustomerTest {
     }
 
     @Test
-    public void getCustomerAccounts() throws Exception {
+    public void test_getCustomerAccounts_Valid() throws Exception {
 
     }
 
     @Test
-    public void getAccount() throws Exception {
+    public void test_getCustomerAccounts_NoAccounts() throws Exception {
 
     }
 
     @Test
-    public void ytdFees() throws Exception {
+    public void test_getCustomerAccounts_CheckReadOnly() throws Exception {
 
     }
 
     @Test
-    public void ytdInterest() throws Exception {
+    public void test_getAccount_Valid() throws Exception {
+
+    }
+
+    @Test
+    public void test_getAccount_EmptyID() throws Exception {
+
+    }
+
+    @Test
+    public void test_getAccount_ShouldBeWritable() throws Exception {
 
     }
 

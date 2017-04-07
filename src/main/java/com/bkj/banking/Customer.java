@@ -1,11 +1,35 @@
 package com.bkj.banking;
 
+import java.util.Map;
 import java.util.Set;
 
 /**
  * Created by bclaus on 4/6/17.
  */
 public class Customer implements Consumer {
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setCustomerAccount(Map<String, Accountable> customerAccounts) {
+        this.customerAccounts = customerAccounts;
+    }
+
+    private String firstName, lastName;
+    private Map<String, Accountable> customerAccounts;
 
     /**
      * Creates a new Customer object from a name.  Note for this project, we assume names are unique.

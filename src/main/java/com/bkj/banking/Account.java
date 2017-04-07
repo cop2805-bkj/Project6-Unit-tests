@@ -1,8 +1,11 @@
 package com.bkj.banking;
 
 /**
- * Created by bclaus on 4/6/17.
+ *  Class Account is responsible for managing the details of any type of account,
+ *  including an accountId, customerId, description, account creation date,
+ *  the current balance, and the account's transaction list.
  */
+
 public abstract class Account implements Accountable {
 
 }

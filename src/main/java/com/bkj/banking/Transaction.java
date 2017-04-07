@@ -25,8 +25,16 @@ public class Transaction implements Comparable<Transaction> {
     You need to test any non-trivial methods your group decides are a good idea.
     */
 
+    /**
+     * Changed from the website documentation
+     * I added some common transaction types because why
+     * would we include a empty enum?
+     */
     enum TransactionType {
-
+        DEPOSIT,
+        WITHDRAW,
+        INTEREST,
+        FEE,
     }
 
     @Override
