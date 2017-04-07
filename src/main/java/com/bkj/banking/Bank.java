@@ -8,7 +8,7 @@ import java.util.List;
 public class Bank implements Bankable {
 
     /**
-     * Creates a new Bank object with the given name 
+     * Creates a new Bank object with the given name
      * @param name
      */
     public Bank(String name) {
