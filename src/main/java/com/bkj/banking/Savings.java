@@ -141,8 +141,8 @@ public class Savings extends SavingsAccount {
      */
     @Override
     public String toString() {
-        return "Savings{" + "monthlyInterestRate=" + monthlyInterestRate + 
-                ", initialBalance=" + initialBalance + ", customerId=" + 
-                customerId + ", accountDescription=" + accountDescription + '}';
+        return "Savings{" + "Monthly InterestRate =" + monthlyInterestRate + 
+                ", Initial Balance=" + initialBalance + ", Customer Id=" + 
+                customerId + ", Account Description=" + accountDescription + '}';
     }    
 }
