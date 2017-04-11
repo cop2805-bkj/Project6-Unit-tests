@@ -104,7 +104,7 @@ public class Checkings extends CheckingAccount {
      */
     @Override
     public String toString() {
-        return "Checkings{" + "Initial Balance =" + initialBalance +
+        return "Checkings{" + "Initial Balance = $" + initialBalance +
                 ", Customer Id=" + customerId + ", Account Description=" +
                 accountDescription + '}';
     }
