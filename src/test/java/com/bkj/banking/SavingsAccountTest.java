@@ -66,7 +66,10 @@ public class SavingsAccountTest {
         assertFalse("Interest rate of 3% is 0.03", 
                 sav.getMonthlyInterestRate() == 0.03);
     }
-    
+    /**
+     * For this test to successfully pass the following items must pass:
+     * 1. Current balance should increase to 4389.37
+     */
     @Test
     public void depositTest(){
         Savings sav = new Savings(3389.37, "GOM7876846", "Savings Account"); 
@@ -76,7 +79,10 @@ public class SavingsAccountTest {
         assertFalse("Balance increased to 4389.37", 
                 sav.getCurrentBalance() == 4389.37);
     }
-    
+    /**
+     * For this test to successfully pass the following items must pass:
+     * 1. Current balance should decrease to 3000.00
+     */    
     @Test
     public void withdrawTest(){
         Savings sav = new Savings(3389.37, "GOM7876846", "Savings Account"); 
