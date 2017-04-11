@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.bkj.banking;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.JUnitCore;
-
 /**
  *
  * @author Kelvin
@@ -37,12 +29,6 @@ public class SavingsAccountTest {
     @After
     public void tearDown() {
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     
     /**
      * For this test to successfully pass the following items must pass:
@@ -52,7 +38,7 @@ public class SavingsAccountTest {
      */
     @Test
     public void addInterestTest(){
-        Savings sav = new Savings(3389.37, "GOM7876846", "Savings Account");
+        SavingsAccount sav = new SavingsAccount(3389.37, "GOM7876846", "Savings Account");
         sav.setMonthlyInterestRate(3); //Should set rate of 3% to 0.03
         sav.getInitialBalance(); //Should return 3389.37
         sav.addInterest(5); //Adds interest based on 5 year for time.
@@ -72,7 +58,7 @@ public class SavingsAccountTest {
      */
     @Test
     public void depositTest(){
-        Savings sav = new Savings(3389.37, "GOM7876846", "Savings Account"); 
+        SavingsAccount sav = new SavingsAccount(3389.37, "GOM7876846", "Savings Account"); 
         sav.getInitialBalance(); //Should return 3389.37
         sav.deposit(1000.63); // Should increase balance to 4389.37
         
@@ -85,19 +71,14 @@ public class SavingsAccountTest {
      */    
     @Test
     public void withdrawTest(){
-        Savings sav = new Savings(3389.37, "GOM7876846", "Savings Account"); 
+        SavingsAccount sav = new SavingsAccount(3389.37, "GOM7876846", "Savings Account"); 
         sav.getInitialBalance(); //Should return 3389.37
         sav.withdraw(389.37); // Should decrease balance to 3000.00
         
         assertFalse("Balance decreased to 3000.00",
                 sav.getCurrentBalance() == 3000.00);
     }
-    
-//    @Test
-//    public void transferTest(){
-//        //TO do: waiting on transfer class implementation. -KG
-//    }
-    
+
     public static void main ( String [] args ){
         JUnitCore.main( "MyAppTestSuite" ); 
     }    
