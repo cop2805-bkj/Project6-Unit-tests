@@ -1,7 +1,6 @@
 package com.bkj.banking;
 
 
-import java.beans.ExceptionListener;
 import java.util.*;
 
 import org.junit.After;
@@ -9,8 +8,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-// TODO: The project page does not define a format for accounts
-public class CustomerTest {
+// TODO: The project page does not define a format for account ID's so I use a UUID
+public class CustomerTestUnits {
     Consumer mockConsumer;
 
     final int ACCOUNT_SET_SIZE = 10;
@@ -30,7 +29,11 @@ public class CustomerTest {
         // Since I only want to test addAccount() and not other methods in the class
         Stack<String> accountIDs = new Stack<>();
         for (int i = 0; i < ACCOUNT_SET_SIZE; i++) {
-            accountIDs.push(mockConsumer.addAccount(UUID.randomUUID().toString()));
+            accountIDs.push(mockConsumer.addAccount(new CheckingAccount(
+                    0.0d,
+                    "JUnit Tests",
+                    "Test checking account")));
+
         }
         // We should have ${ACCOUNT_SET_SIZE} accounts after adding them
         // this is the only way I can think of without reflection to test
@@ -39,26 +42,30 @@ public class CustomerTest {
                 mockConsumer.getAccountCount() == ACCOUNT_SET_SIZE);
     }
 
-    // TODO: in a real test case Exception would be a custom runtime exception
-    // such as DuplicateAccountException so it would have a more descriptive name
     @Test(expected = Account.DuplicateAccountException.class)
-    public void test_AddAccountInvalid_Duplicate() throws Exception {
-        UUID accountID = UUID.randomUUID();
-        mockConsumer.addAccount(accountID.toString());
+    public void test_addAccount_InvalidDuplicate() throws Exception {
+
+        CheckingAccount ca = new CheckingAccount(
+                0.0d,
+                "JUnit Tests",
+                "Test checking account");
+
+        mockConsumer.addAccount(ca);
 
         // Since we are adding a duplicate this should throw an exception
         // we will fail this test if it doesn't
-        mockConsumer.addAccount(accountID.toString());
+        mockConsumer.addAccount(ca);
     }
 
     @Test
     public void test_getCustomerAccounts_Valid() throws Exception {
-        // add ${ACCOUNT_SET_SIZE} accounts to mock object and store names
-        // in a stack for later checking.
         Map<String, Boolean> accountIDs = new HashMap<>();
 
         for (int i = 0; i < ACCOUNT_SET_SIZE; i++) {
-            accountIDs.put(mockConsumer.addAccount(UUID.randomUUID().toString()),
+            accountIDs.put(mockConsumer.addAccount(new CheckingAccount(
+                            0.0d,
+                            "JUnit Tests",
+                            "Test checking account")),
                     Boolean.FALSE);
         }
 
@@ -110,10 +117,23 @@ public class CustomerTest {
     @Test
     public void test_getAccount_Valid() throws Exception {
 
+        CheckingAccount testAccount = new CheckingAccount(500.0d, "JUnit Tests", "Checking account");
+        String createdAccountID = mockConsumer.addAccount(testAccount);
+
+        Accountable result = mockConsumer.getAccount(createdAccountID);
+        Assert.assertEquals("getAccount returned a object that doesn't match the created object",
+                            testAccount, result);
+
     }
 
     @Test
     public void test_getAccount_NotFound() throws Exception {
+        CheckingAccount testAccount = new CheckingAccount(500.0d, "JUnit Tests", "Checking account");
 
+        String createdAccountID = mockConsumer.addAccount(testAccount);
+
+        Accountable result = mockConsumer.getAccount(UUID.randomUUID().toString());
+        Assert.assertNotNull("getAccount returned a (non-null) object -> This shouldn't happen",
+                            result);
     }
 }

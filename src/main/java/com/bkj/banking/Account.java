@@ -11,5 +11,14 @@ public abstract class Account implements Accountable {
         // TODO: place holder to make some code prettier
     }
 
+    public String getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(String accountID) {
+        this.accountID = accountID;
+    }
+
+    // implemented to make test code more usable
     String accountID;
 }

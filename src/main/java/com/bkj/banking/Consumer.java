@@ -40,7 +40,7 @@ public interface Consumer {
     */
 
     // On success returns the full string name
-    String addAccount(String uniqueId) throws Exception;
+    String addAccount(Accountable account) throws Exception;
 
     // remove by UUID
     boolean removeAccount(String uniqueId) throws Exception;

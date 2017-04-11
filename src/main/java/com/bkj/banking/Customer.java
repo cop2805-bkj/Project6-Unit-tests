@@ -84,7 +84,7 @@ public class Customer implements Consumer {
     }
 
     @Override
-    public String addAccount(String uniqueId) throws Exception {
+    public String addAccount(Accountable account) throws Exception {
         return null;
     }
 
