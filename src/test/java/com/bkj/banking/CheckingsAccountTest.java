@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.JUnitCore;
 
 /**
  *
@@ -96,5 +97,9 @@ public class CheckingsAccountTest {
         
         assertFalse("Ending balance is -$60.00", 
                 ck.getInitialBalance() == -60.0d);
+    }
+    
+    public static void main(String[] args){
+        JUnitCore.main("MyAppTestSuite");
     }
 }
