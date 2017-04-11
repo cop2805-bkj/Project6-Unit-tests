@@ -8,7 +8,14 @@ package com.bkj.banking;
  * Class SavingsAccount is an Account, but includes monthly interest payments.
  */
 public class SavingsAccount extends Account {
-
+    /**
+     * Class properties. -KG
+     */
+    private double monthlyInterestRate;
+    private double balance;
+    private String customerId;
+    private String description;
+    
     /**
      * Create a new savings account
      *
@@ -17,12 +24,84 @@ public class SavingsAccount extends Account {
      * @param accountDescription
      */
     SavingsAccount (double initialBalance, String customerId, String accountDescription) {
-
+        
     }
+    /**
+     * BEGIN: Getter and setters. -KG
+     *
+     */
+    
+    /**
+     * Gets monthly Interest Rate. -KG
+     * @return 
+     */
+    public double getMonthlyInterestRate() {
+        return monthlyInterestRate;
+    }
+    
+    /**
+     * Sets Interest Rate. -KG
+     * @param monthlyInterestRate 
+     */
+    public void setMonthlyInterestRate(double monthlyInterestRate) {
+        this.monthlyInterestRate = monthlyInterestRate;
+    }
+
+    /**
+     * Gets Balance. -KG
+     * @return 
+     */
+    public double getBalance() {
+        return balance;
+    }
+    
+    /**
+     * Sets Balance. -KG
+     * @param balance 
+     */
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+    
+    /**
+     * Gets Customer ID. -KG
+     * @return 
+     */
+    public String getCustomerId() {
+        return customerId;
+    }
+    
+    /**
+     * Sets Customer ID. -KG
+     * @param customerId 
+     */
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+    
+    /**
+     * Gets account description. -KG
+     * @return 
+     */
+    public String getDescription() {
+        return description;
+    }
+    
+    /**
+     * Sets account description. -KG
+     * @param description 
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    /**
+     * END: Getter and setters. -KG
+     */
 
 
     /**
-     * Adds a transaction "INTEREST PAYMENT" based on this account's monthly interest rate.
+     * Adds a transaction "INTEREST PAYMENT" based on this accounts monthly interest rate.
      */
     void addInterest(){
 
@@ -35,7 +114,7 @@ public class SavingsAccount extends Account {
      */
     @Override
     public void deposit(double amount) {
-
+        
     }
 
     /**
@@ -47,10 +126,23 @@ public class SavingsAccount extends Account {
     public void withdraw(double amount) {
 
     }
-
-    /*
-    Getters, setters, (for example, to get and set the monthly interest rate), toString, and other methods as needed (for example, inherited abstract methods)
-    You need to test any non-trivial methods your group decides are a good idea.
-    */
-
+    
+    /**
+     * Transfer funds between two accounts of a single customer. -KG
+     * @param fromAccount
+     * @param toAccount
+     * @param amount
+     */
+    public void transfer(Account fromAccount, Account toAccount, double amount){
+    
+    }
+    
+    /**
+     * toString Override to display customer details. -KG
+     * @return 
+     */
+    @Override
+    public String toString(){
+        return null;
+    }
 }
