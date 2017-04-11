@@ -7,5 +7,9 @@ package com.bkj.banking;
  */
 
 public abstract class Account implements Accountable {
+    class DuplicateAccountException extends Exception {
+        // TODO: place holder to make some code prettier
+    }
 
+    String accountID;
 }

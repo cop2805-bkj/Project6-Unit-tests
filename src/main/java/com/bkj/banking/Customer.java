@@ -2,6 +2,7 @@ package com.bkj.banking;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created by bclaus on 4/6/17.
@@ -81,4 +82,20 @@ public class Customer implements Consumer {
     public double YtdInterest() {
         return 0;
     }
+
+    @Override
+    public String addAccount(String uniqueId) throws Exception {
+        return null;
+    }
+
+    @Override
+    public boolean removeAccount(String uniqueId) throws Exception {
+        return false;
+    }
+
+    @Override
+    public int getAccountCount() {
+        return 0;
+    }
+
 }
