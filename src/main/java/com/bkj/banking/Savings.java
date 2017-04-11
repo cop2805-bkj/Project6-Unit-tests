@@ -40,7 +40,7 @@ public class Savings extends SavingsAccount {
      * @param monthlyInterestRate
      */
     public void setMonthlyInterestRate(double monthlyInterestRate) {
-        this.monthlyInterestRate = monthlyInterestRate;
+        this.monthlyInterestRate = monthlyInterestRate / 100;
     }
     /**
      * Getter. -KG
