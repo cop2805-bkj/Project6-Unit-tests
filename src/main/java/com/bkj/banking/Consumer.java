@@ -1,6 +1,7 @@
 package com.bkj.banking;
 
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created by bclaus on 4/6/17.
@@ -37,4 +38,18 @@ public interface Consumer {
     Getters, setters, toString, and other methods as needed
     You need to test any non-trivial methods your group decides are a good idea.
     */
+
+    // On success returns the full string name
+    String addAccount(Accountable account) throws Exception;
+
+    // remove by UUID
+    boolean removeAccount(String uniqueId) throws Exception;
+
+    default int getAccountCount() {
+        if (getCustomerAccounts() != null) {
+            return this.getCustomerAccounts().size();
+        } else {
+            return 0;
+        }
+    }
 }
