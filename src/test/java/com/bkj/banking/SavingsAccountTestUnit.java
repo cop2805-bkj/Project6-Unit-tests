@@ -4,14 +4,15 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.Assert;
 import org.junit.runner.JUnitCore;
 /**
  *
  * @author Kelvin
  */
-public class SavingsAccountTest {
+public class SavingsAccountTestUnit {
 
-    public SavingsAccountTest() {
+    public SavingsAccountTestUnit() {
     }
     
     @BeforeClass
@@ -43,13 +44,13 @@ public class SavingsAccountTest {
         sav.getInitialBalance(); //Should return 3389.37
         sav.addInterest(5); //Adds interest based on 5 year for time.
         
-        assertFalse("New balance should be 3897.7755", 
+        Assert.assertFalse("New balance should be 3897.7755",
                 sav.getCurrentBalance() == 3897.7755);
         
-        assertFalse("Initial balance was set to 3389.37",
+        Assert.assertFalse("Initial balance was set to 3389.37",
                 sav.getInitialBalance() == 3389.37);
         
-        assertFalse("Interest rate of 3% is 0.03", 
+        Assert.assertFalse("Interest rate of 3% is 0.03",
                 sav.getMonthlyInterestRate() == 0.03);
     }
     /**
@@ -62,7 +63,7 @@ public class SavingsAccountTest {
         sav.getInitialBalance(); //Should return 3389.37
         sav.deposit(1000.63); // Should increase balance to 4389.37
         
-        assertFalse("Balance increased to 4389.37", 
+        Assert.assertFalse("Balance increased to 4389.37",
                 sav.getCurrentBalance() == 4389.37);
     }
     /**
@@ -75,7 +76,7 @@ public class SavingsAccountTest {
         sav.getInitialBalance(); //Should return 3389.37
         sav.withdraw(389.37); // Should decrease balance to 3000.00
         
-        assertFalse("Balance decreased to 3000.00",
+        Assert.assertFalse("Balance decreased to 3000.00",
                 sav.getCurrentBalance() == 3000.00);
     }
 

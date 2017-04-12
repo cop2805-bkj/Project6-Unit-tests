@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 // TODO: The project page does not define a format for account ID's so I use a UUID
-public class CustomerTestUnits {
+public class CustomerTestUnit {
     Consumer mockConsumer;
 
     final int ACCOUNT_SET_SIZE = 10;
