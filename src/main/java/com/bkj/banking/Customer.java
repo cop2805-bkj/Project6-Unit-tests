@@ -1,11 +1,36 @@
 package com.bkj.banking;
 
+import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created by bclaus on 4/6/17.
  */
 public class Customer implements Consumer {
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setCustomerAccount(Map<String, Accountable> customerAccounts) {
+        this.customerAccounts = customerAccounts;
+    }
+
+    private String firstName, lastName;
+    private Map<String, Accountable> customerAccounts;
 
     /**
      * Creates a new Customer object from a name.  Note for this project, we assume names are unique.
@@ -57,4 +82,20 @@ public class Customer implements Consumer {
     public double YtdInterest() {
         return 0;
     }
+
+    @Override
+    public String addAccount(Accountable account) throws Exception {
+        return null;
+    }
+
+    @Override
+    public boolean removeAccount(String uniqueId) throws Exception {
+        return false;
+    }
+
+    @Override
+    public int getAccountCount() {
+        return 0;
+    }
+
 }
