@@ -12,6 +12,8 @@ public class SavingsAccount extends Account {
 /**
      * Properties. -KG
      */
+    private final double withdrawFee = 3.0d;
+    private final double overdraftFee = 35.0d;
     private double monthlyInterestRate;
     private double initialBalance;
     private double currentBalance;
@@ -137,6 +139,16 @@ public class SavingsAccount extends Account {
      */
     public void transfer(Account fromAccount, Account toAccount, double amount){
         //TO do: waiting on transfer class implementation. -KG
+    }
+        /**
+     * Adds a transaction "FEE" based on this accounts monthly and other fees.
+     * @param amount
+     */
+    void applyFee( double amount ){
+        initialBalance = initialBalance - amount;
+        if(initialBalance < 0.0d){
+            initialBalance = initialBalance - overdraftFee;
+        }
     }
     /**
      * toString Override. -KG

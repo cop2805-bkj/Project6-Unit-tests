@@ -7,6 +7,7 @@ package com.bkj.banking;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -39,7 +40,8 @@ public class CheckingsAccountTestUnit {
      */
     @Test
     public void applyFeeForWithdrawlTest(){
-        CheckingAccount ck = new CheckingAccount(100.0d, "GOM20047", "Checkings Account");
+        CheckingAccount ck = new CheckingAccount(100.0d, 
+                "GOM20047", "Checkings Account");
         ck.withdraw(72.0d);
         
         Assert.assertFalse("Ending balance is be $25.00",
@@ -50,7 +52,8 @@ public class CheckingsAccountTestUnit {
      */
     @Test
     public void applyFeeForOverdraftTest(){
-        CheckingAccount ck = new CheckingAccount(100.0d, "GOM20047", "Checkings Account");
+        CheckingAccount ck = new CheckingAccount(100.0d, 
+                "GOM20047", "Checkings Account");
         ck.withdraw(101.0d);
         
         Assert.assertFalse("Ending balance is -$39.00",
@@ -61,7 +64,8 @@ public class CheckingsAccountTestUnit {
      */
     @Test
     public void depositTest(){
-        CheckingAccount ck = new CheckingAccount(100.0d, "GOM20047", "Checkings Account");
+        CheckingAccount ck = new CheckingAccount(100.0d, 
+                "GOM20047", "Checkings Account");
         ck.deposit(250.0d);
         
         Assert.assertFalse("Ending balance is be $350.00",
@@ -72,7 +76,8 @@ public class CheckingsAccountTestUnit {
      */
     @Test
     public void withdrawTest(){
-        CheckingAccount ck = new CheckingAccount(100.0d, "GOM20047", "Checkings Account");
+        CheckingAccount ck = new CheckingAccount(100.0d, 
+                "GOM20047", "Checkings Account");
         ck.withdraw(35.0d);
         
         Assert.assertFalse("Ending balance is $65.00", ck.getInitialBalance() == 65.0d);
@@ -82,7 +87,8 @@ public class CheckingsAccountTestUnit {
      */
     @Test
     public void withdrawWithOverdraftFeeTest(){
-        CheckingAccount ck = new CheckingAccount(100.0d, "GOM20047", "Checkings Account");
+        CheckingAccount ck = new CheckingAccount(100.0d, 
+                "GOM20047", "Checkings Account");
         ck.withdraw(125.0d);
         
         Assert.assertFalse("Ending balance is -$60.00",
