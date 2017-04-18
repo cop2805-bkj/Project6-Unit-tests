@@ -20,6 +20,18 @@ public class BKJTestRunner {
         // to preserve backward compatibility varargs (T...) is implemented as (T[])
         // so you can pass a array of objects to a varargs class
         System.out.printf("Running %d Test Units...%n", testClasses.length);
+
+
+        /*
+            Went assert happy throughout the JUnit Test runner
+            my reasoning is since we can't (I mean we could...)
+            write unit tests for our testing framework
+            I should use asserts to ensure correct operation
+            of this code.
+         */
+
+        // Make sure testClasses has at least 1 class to test
+        assert (testClasses.length >= 1);
         final Result result = JUnitCore.runClasses(testClasses);
         assert (result != null);
 
@@ -29,7 +41,9 @@ public class BKJTestRunner {
         final int failTestsCount = result.getFailureCount();
         final List<Failure> failingTests = result.getFailures();
 
-        assert (ranTestsCount >= failTestsCount); // Can't be too careful I guess
+        // I doubt this could happen but check to make
+        // sure we ran more tests than we failed
+        assert (ranTestsCount >= failTestsCount);
         final int passedCount = (ranTestsCount - failTestsCount);
 
         final int ignoredTestCount = result.getIgnoreCount();
