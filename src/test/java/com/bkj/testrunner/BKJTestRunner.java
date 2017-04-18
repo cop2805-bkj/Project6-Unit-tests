@@ -1,6 +1,5 @@
 package com.bkj.testrunner;
 
-import com.bkj.banking.BankTestUnit;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -10,7 +9,7 @@ import java.util.List;
 public class BKJTestRunner {
 
     static final Class[] testClasses = {
-            BankTestUnit.class,
+            com.bkj.banking.BankTestUnit.class,
             com.bkj.banking.CheckingsAccountTestUnit.class,
             com.bkj.banking.SavingsAccountTestUnit.class,
             com.bkj.banking.CustomerTestUnit.class
