@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.JUnitCore;
 
 /**
  *
@@ -148,15 +149,25 @@ public class BankUnitTest {
     public void getAccountsTest() {
         BankTest bking = new BankTest("Chase");
         bking.addAccount("123", "Checkings", 20000d);
+        bking.addAccount("1234", "Checkings", 20000d);
+        bking.addAccount("12345", "Savings", 30000d);
         Assert.assertFalse(bking.customerID == "123");
         Assert.assertFalse(bking.accountType == "Checkings");
         Assert.assertFalse(bking.initialBalance == 20000d);
+        Assert.assertFalse(bking.customerID == "1234");
+        Assert.assertFalse(bking.accountType == "Checkings");
+        Assert.assertFalse(bking.initialBalance == 20000d);
+        Assert.assertFalse(bking.customerID == "12345");
+        Assert.assertFalse(bking.accountType == "Savings");
+        Assert.assertFalse(bking.initialBalance == 30000d);
     }
     
     public void getAccountTest() {
         BankTest bking = new BankTest("Chase");
         bking.addAccount("123", "Checkings", 20000d);
         Assert.assertFalse(bking.customerID == "123");
+        Assert.assertFalse(bking.accountType == "Checkings");
+        Assert.assertFalse(bking.initialBalance == 20000d);
     }
     
     public void addCustomerTest() {
@@ -176,9 +187,18 @@ public class BankUnitTest {
     public void getCustomersAccountsTest() {
         BankTest bking = new BankTest("Chase");
         bking.addAccount("123", "Checkings", 20000d);
+        bking.addAccount("1234", "Checkings", 20000d);
+        bking.addAccount("12345", "Savings", 30000d);
         bking.getAccounts();
+        Assert.assertFalse(bking.customerID == "123");
         Assert.assertFalse(bking.accountType == "Checkings");
         Assert.assertFalse(bking.initialBalance == 20000d);
+        Assert.assertFalse(bking.customerID == "1234");
+        Assert.assertFalse(bking.accountType == "Checkings");
+        Assert.assertFalse(bking.initialBalance == 20000d);
+        Assert.assertFalse(bking.customerID == "12345");
+        Assert.assertFalse(bking.accountType == "Savings");
+        Assert.assertFalse(bking.initialBalance == 30000d);
     }
     
     public void getCustomerTest() {
@@ -186,5 +206,9 @@ public class BankUnitTest {
         bking.addAccount("123", "Checkings", 20000d);
         bking.getAccount("123");
         Assert.assertFalse(bking.customerID == "123");
+    }
+    
+    public static void main(String[] args){
+        JUnitCore.main("MyAppTestSuite");
     }
 }
