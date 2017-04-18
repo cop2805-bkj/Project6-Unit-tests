@@ -41,9 +41,9 @@ public class BKJTestRunner {
         System.out.printf("Testing complete: %s%n%n", testStatus);
         if(!result.wasSuccessful()) {
             for (Failure fail : failingTests) {
-                System.out.printf("\t%s%n", fail.getTestHeader());
-                System.out.printf("\t\t FAILURE REASON: %s%n", fail.getException().getMessage());
-                System.out.printf("\t\t STACK TRACE:%n%s%n", fail.getTrace());
+                System.out.printf("\t>>> %s <<<%n", fail.getTestHeader());
+                System.out.printf("\tFAILURE REASON: %s%n", fail.getException().getMessage());
+                System.out.printf("\tSTACK TRACE:%n%n\t\t%s%n", fail.getTrace());
             }
         }
         System.out.printf("\t\t>>> TESTING STATS <<< %n");
