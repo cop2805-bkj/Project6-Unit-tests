@@ -6,6 +6,8 @@
 package com.bkj.banking;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -75,9 +77,39 @@ public class BankUnitTest {
             return null;
         }
         
+        public void getAccounts() {
+            Customer customer = new Customer("Like", "Mike");
+            customer.getCustomerAccounts();
+        }
+        
         public Accountable getAccount(String accountId) {
             Customer customer = new Customer("Like", "Mike");
             customer.getAccount(accountId);
+            return null;
+        }
+        
+        public void addCustomer() {
+            Customer customer = new Customer("Like", "Mike");
+            customer.getCustomerAccounts();
+        }
+        
+        public void removeCustomer(String customerId) {
+            Customer customer = new Customer("Like", "Mike");
+            try {
+                customer.removeAccount(customerId);
+            } catch (Exception ex) {
+                Logger.getLogger(BankUnitTest.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        public void getCustomers() {
+            Customer customer = new Customer("Like", "Mike");
+            customer.getCustomerAccounts();
+        }
+        
+        public Consumer getCustomer(String customerId) {
+            Customer customer = new Customer("Like", "Mike");
+            customer.getAccount("123");
             return null;
         }
 
@@ -113,11 +145,46 @@ public class BankUnitTest {
     }
     
     @Test
-    public void getAccounts() {
+    public void getAccountsTest() {
         BankTest bking = new BankTest("Chase");
         bking.addAccount("123", "Checkings", 20000d);
         Assert.assertFalse(bking.customerID == "123");
         Assert.assertFalse(bking.accountType == "Checkings");
         Assert.assertFalse(bking.initialBalance == 20000d);
+    }
+    
+    public void getAccountTest() {
+        BankTest bking = new BankTest("Chase");
+        bking.addAccount("123", "Checkings", 20000d);
+        Assert.assertFalse(bking.customerID == "123");
+    }
+    
+    public void addCustomerTest() {
+        BankTest bking = new BankTest("Chase");
+        bking.addAccount("123", "Checkings", 20000d);
+        bking.getCustomerID();
+        Assert.assertFalse(bking.customerID == "123");
+    }
+    
+    public void removeCustomerTest() {
+        BankTest bking = new BankTest("Chase");
+        bking.addAccount("123", "Checkings", 20000d);
+        bking.getCustomerID();
+        Assert.assertFalse(bking.customerID == "0");
+    }
+    
+    public void getCustomersAccountsTest() {
+        BankTest bking = new BankTest("Chase");
+        bking.addAccount("123", "Checkings", 20000d);
+        bking.getAccounts();
+        Assert.assertFalse(bking.accountType == "Checkings");
+        Assert.assertFalse(bking.initialBalance == 20000d);
+    }
+    
+    public void getCustomerTest() {
+        BankTest bking = new BankTest("Chase");
+        bking.addAccount("123", "Checkings", 20000d);
+        bking.getAccount("123");
+        Assert.assertFalse(bking.customerID == "123");
     }
 }
