@@ -14,16 +14,15 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.JUnitCore;
 
 /**
  *
  * @author Jonathan Llaneras
  */
-public class BankUnitTest {
+public class BankTestUnit {
     
-    public BankUnitTest() {
+    public BankTestUnit() {
     }
     
     @BeforeClass
@@ -99,7 +98,7 @@ public class BankUnitTest {
             try {
                 customer.removeAccount(customerId);
             } catch (Exception ex) {
-                Logger.getLogger(BankUnitTest.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BankTestUnit.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
