@@ -19,7 +19,7 @@
 package com.bkj.banking;
 
 public class CheckingAccount extends Account {
- /**
+    /**
      * Properties. -KG
      */
     private final double withdrawFee = 3.0d;
@@ -27,84 +27,107 @@ public class CheckingAccount extends Account {
     private double initialBalance;
     private String customerId;
     private String accountDescription;
+
     /**
      * Constructor
+     *
      * @param initialBalance
      * @param customerId
-     * @param accountDescription 
+     * @param accountDescription
      */
     public CheckingAccount(double initialBalance, String customerId, String accountDescription) {
 
     }
-    /*****************************
+
+    /*
      *BEGIN: Getter & Setters. -KG
      */
+
     /**
      * Getter
-     * @return 
+     *
+     * @return
      */
+
     public double getInitialBalance() {
         return initialBalance;
     }
+
     /**
      * Setter
-     * @param initialBalance 
+     *
+     * @param initialBalance
      */
+
     public void setInitialBalance(double initialBalance) {
         this.initialBalance = initialBalance;
     }
+
     /**
      * Getter
-     * @return 
+     *
+     * @return
      */
     public String getCustomerId() {
         return customerId;
     }
+
     /**
      * Setter
-     * @param customerId 
+     *
+     * @param customerId
      */
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
+
     /**
      * Getter
-     * @return 
+     *
+     * @return
      */
     public String getAccountDescription() {
         return accountDescription;
     }
+
     /**
      * Setter
-     * @param accountDescription 
+     *
+     * @param accountDescription
      */
     public void setAccountDescription(String accountDescription) {
         this.accountDescription = accountDescription;
     }
-    /*****************************
+
+    /*
      *END: Getter & Setters. -KG
      */
-    
+
     /**
      * Adds a transaction "FEE" based on this accounts monthly and other fees.
+     *
      * @param amount
      */
-    void applyFee( double amount ){
+    void applyFee(double amount) {
         initialBalance = initialBalance - amount;
-        if(initialBalance < 0.0d){
+        if (initialBalance < 0.0d) {
             initialBalance = initialBalance - overdraftFee;
         }
     }
+
     /**
      * Add money into account
-     * @param amount 
+     *
+     * @param amount
      */
     @Override
-    public void deposit(double amount){
+    public void deposit(double amount) {
         initialBalance = initialBalance + amount;
     }
+
     /**
      * remove money from account
+     *
      * @param amount
      */
     @Override
@@ -112,9 +135,11 @@ public class CheckingAccount extends Account {
         initialBalance = initialBalance - amount;
         applyFee(withdrawFee);
     }
+
     /**
      * toString Override
-     * @return 
+     *
+     * @return
      */
     @Override
     public String toString() {
