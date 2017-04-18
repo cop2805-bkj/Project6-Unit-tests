@@ -1,14 +1,32 @@
+/*
+ *     Customer.java is a part of BankingApp
+ *     Copyright (c) 2017
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.bkj.banking;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 
-/**
- * Created by bclaus on 4/6/17.
- */
 public class Customer implements Consumer {
-
+    /*
+        I am not testing getters and setters for the most part because
+        the data format was not given ahead of time and because in most cases
+        I can't check if first or last name are valid in any useful context
+     */
     public String getFirstName() {
         return firstName;
     }
